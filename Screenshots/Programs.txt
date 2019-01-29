@@ -1,0 +1,187 @@
+//task1, search simple number from 1 to N
+
+import java.util.Scanner;
+
+public class SimpleNumbers {
+	    public static void main(String[] args) {
+	        Scanner in = new Scanner(System.in);
+	        System.out.println("Enter number : ");
+	        int num = in.nextInt();
+	        int i;
+	        boolean Simple = false;
+	        System.out.println("2 is simple number");
+	        for(i = 2; i <= num; i++) {
+	            if(i%2 == 0) 
+	                continue;
+	            for(int j = 2; j < i; j++) {
+	                if(i%j != 0) 
+	                    Simple = true;
+	                else { 
+	                    Simple = false; 
+	                    break; 
+	                }          
+	            }        
+	            if(Simple) 
+	                System.out.println(i + " is simple number");
+	        }
+	    }
+}
+
+
+//task2, search Fibonacci numbers from 1 to N
+
+import java.util.Scanner;
+
+public class FibonacciNumbers {
+	static int fibonacci(int i)
+    {
+        return (i<=2 ? 1 : fibonacci(i-1) + fibonacci(i-2));
+    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Enter number: ");
+        int num = in.nextInt();
+        for (int i=1; i<=num; i++)
+            System.out.print(fibonacci(i) + ", ");
+        System.out.println("...");
+    }
+}
+
+//task3, sort array of int numbers
+
+import java.util.Scanner;
+
+public class SortArray {
+	  public static int[] sortByDecrease(int[] array) {
+		  int temp;
+		    for (int i = 0; i < array.length; i++) {
+		        for (int j = i + 1; j < array.length; j++) {
+		            if (array[i] < array[j]) {
+		                temp = array[i];
+		                array[i] = array[j];
+		                array[j] = temp;
+		            }
+		        }
+		    }
+		    return array;
+	  }
+	  public static void main(String[] args) throws Exception {
+		  Scanner input = new Scanner(System.in);
+		    System.out.println("Enter array length: ");
+		    int size = input.nextInt(); 
+		    int array[] = new int[size]; 
+		    System.out.println("Insert array elements:");
+		    for (int i = 0; i < size; i++) {
+		        array[i] = input.nextInt();
+		    }
+		    System.out.print ("Inserted array elements:");
+		    for (int i = 0; i < size; i++) {
+		        System.out.print (" " + array[i]);
+		    }
+		    System.out.println();
+		    
+		    int [] sortArr = sortByDecrease(array);
+		  
+		    System.out.print("Sorted array: ");
+		    for (int i = 0; i < sortArr.length; i++) {
+		        System.out.print(sortArr[i] + " ");
+		    }
+	  }
+}
+
+
+//task4, search matched by true
+
+import java.util.Scanner;
+
+public class CheckingOnTrue {
+	 static int findMatched(boolean[] array){
+			int matched = 0;
+			for(int i = 0; i < array.length;i++) {
+				if(array[i] == true){
+		    		matched++;
+		        }
+			}
+	     return matched;
+	 }
+	 public static void main(String[] args) throws Exception {
+		  	Scanner input = new Scanner(System.in);
+		    boolean array[] = new boolean[4];
+		    System.out.print ("Enter array of booleans values:");
+		    for (int i = 0; i < 4; i++) {
+		        array[i] = input.nextBoolean();
+		    }
+		    System.out.print ("Entered elements:");
+		    for (int i = 0; i < array.length; i++) {
+		        System.out.print (" " + array[i]);
+		    }
+		    System.out.println();
+		    
+		    /*
+		     * method search matched values in array,
+		     * @return marched - count matched in array
+		     */
+		    int matched = findMatched(array); 
+		   
+	        if(matched == 2) {
+	        	System.out.println("True");
+	        } else {
+	        	System.out.println("False");
+	        }   
+	 }
+}
+
+//task5, checking word on palindrome
+
+import java.util.Scanner;
+
+public class Palindrome {
+	public static String reverseString(String s){
+        String r = "";
+        for (int i = s.length() - 1; i >= 0; --i)
+            r += s.charAt(i);
+        return r;
+    }
+    public static Boolean isPalindrome(String s) {
+        if(s.equals(reverseString(s))){
+            System.out.println("Палиндром");
+        } else {
+            System.out.println("Не палиндром");
+        }
+        return s.equals(reverseString(s));
+    }
+	public static void main(String[] args){
+	        Scanner scan = new Scanner(System.in);
+	        System.out.print("Enter word for checking on palindrome: ");
+	        String s=scan.next();
+	        isPalindrome(s);
+	}
+}
+
+//task6, remove from text numbers
+
+
+import java.util.Scanner;
+
+public class RemovedNumbers {
+	public static void main(String[] args){
+        Scanner scan = new Scanner(System.in);
+        String str = "";
+        System.out.print("Enter new line: ");
+            while (scan.hasNextLine()){
+            	try {
+            		 String line = scan.nextLine();
+            		 System.out.println(line.replaceAll("[^\\s+a-zA-Z!?.-]", ""));
+                     if (line.equals("##")) {
+                         System.exit(0);
+                         scan.close();
+                     }
+            	} catch (Exception e){
+            	       System.out.println("Error ::"+e.getMessage());
+            	       e.printStackTrace();
+                }
+            }
+        }
+}
+
+
