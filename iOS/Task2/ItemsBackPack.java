@@ -7,7 +7,7 @@ public class ItemsBackPack {
 		Scanner scanner = new Scanner(System.in);
 		int size = 0;
 		try {
-			 System.out.print("Введите количество предметов: ");
+			 System.out.print("Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ РїСЂРµРґРјРµС‚РѕРІ: ");
 			 size = scanner.nextInt();
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
@@ -16,13 +16,13 @@ public class ItemsBackPack {
 		Subject[] subjects = new Subject[size];
 		
 		for(int i = 0; i < size; i++) {
-			System.out.println("Введите наименование " + (i+1) + " предмета: ");
+			System.out.println("Р’РІРµРґРёС‚Рµ РЅР°РёРјРµРЅРѕРІР°РЅРёРµ " + (i+1) + " РїСЂРµРґРјРµС‚Р°: ");
 			String name = scanner.next();
 			
-			System.out.print("Введите вес " + (i+1) + " предмета: ");
+			System.out.print("Р’РІРµРґРёС‚Рµ РІРµСЃ " + (i+1) + " РїСЂРµРґРјРµС‚Р°: ");
 			double weight = scanner.nextDouble();
 			
-			System.out.print("Введите стоимость " + (i+1) + " предмета: ");
+			System.out.print("Р’РІРµРґРёС‚Рµ СЃС‚РѕРёРјРѕСЃС‚СЊ " + (i+1) + " РїСЂРµРґРјРµС‚Р°: ");
 			double cost = scanner.nextDouble();
 			
 			subjects[i] = new Subject(name, weight, cost);
@@ -36,7 +36,7 @@ public class ItemsBackPack {
 		 * next action on define border and max 
 		 */
 	
-		 System.out.print("Введите общий вес рюкзака : ");
+		 System.out.print("Р’РІРµРґРёС‚Рµ РѕР±С‰РёР№ РІРµСЃ СЂСЋРєР·Р°РєР° : ");
 		 double userWeightBackPack = scanner.nextDouble();
 		 
 		 double totalWeightInBackPack = 0;
@@ -47,11 +47,11 @@ public class ItemsBackPack {
 		 for(int i = 0; i < subjects.length; i++) {
 			 if(totalWeightInBackPack < userWeightBackPack && subjects[i].getWeight() < userWeightBackPack) {
 				 totalWeightInBackPack += subjects[i].getWeight();
-				 System.out.println("Положили в рюкзак: " + subjects[i].getName() + "...");
+				 System.out.println("РџРѕР»РѕР¶РёР»Рё РІ СЂСЋРєР·Р°Рє: " + subjects[i].getName() + "...");
 		 	 }
 		 }
 		 
-		 System.out.print("В рюкзаке следующие предметы: ");
+		System.out.print(subjects[i].getName() + " ");
 		 for(int i = 0; i < subjects.length; i++) {
 				System.out.print(subjects[i].getName() + " ");
 		 }	
