@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class Consonants {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-		String alphabetRu = "бвгджзклмнпрстфхцчшщБВГДЖЗКЛМНПРСТФХЦЧШЩ";
+		String alphabetRu = "Р±РІРіРґР¶Р·РєР»РјРЅРїСЂСЃС‚С„С…С†С‡С€С‰Р‘Р’Р“Р”Р–Р—РљР›РњРќРџР РЎРўР¤РҐР¦Р§РЁР©";
 		String alphabetEn = "qwrtpsdfghjklzxcvbnmQWRTPSDFGHJKLZXCVBNM";
 		
 		/**
@@ -32,14 +32,14 @@ public class Consonants {
 				System.out.println("Select language (ru/en): \n1. ru\n2. en");
 				Integer str = scanner.nextInt();		
 				if(str.equals(1)){
-					System.out.println("Введите строку (ru): ");
+					System.out.println("Г‚ГўГҐГ¤ГЁГІГҐ Г±ГІГ°Г®ГЄГі (ru): ");
 					String temp = scanner.next();
 					char[] chArray = temp.toCharArray();
 					Map<Character, Integer> mapping = findChars(chArray, alphabetRu, temp);
 					if(!mapping.isEmpty()) {
-						System.out.println("Исходный текст: " + temp + '\n' + mapping);
+						System.out.println("РСЃС…РѕРґРЅС‹Р№ С‚РµРєСЃС‚: " + temp + '\n' + mapping);
 					} else {
-						System.out.println("В введённой строке нет согласных букв. Пожалуйста, проверьте раскладку клавиатуры.");
+						System.out.println("Р’ РІРІРµРґС‘РЅРЅРѕР№ СЃС‚СЂРѕРєРµ РЅРµС‚ СЃРѕРіР»Р°СЃРЅС‹С… Р±СѓРєРІ. РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РїСЂРѕРІРµСЂСЊС‚Рµ СЂР°СЃРєР»Р°РґРєСѓ РєР»Р°РІРёР°С‚СѓСЂС‹.");
 					}
 				
 					 LinkedHashMap<Character, Integer> sortedMap = sorting(mapping);
@@ -64,9 +64,9 @@ public class Consonants {
 				char[] chArray = str.toCharArray();
 				Map<Character, Integer> mapping = findChars(chArray, alphabetRu, str);
 				if(!mapping.isEmpty()) {
-					System.out.println("Исходный текст: " + str + '\n' + mapping);
+					System.out.println("Г€Г±ГµГ®Г¤Г­Г»Г© ГІГҐГЄГ±ГІ: " + str + '\n' + mapping);
 				} else {
-					System.out.println("В введённой строке нет согласных букв. Пожалуйста, проверьте раскладку клавиатуры.");
+					System.out.println("Р’ РІРІРµРґС‘РЅРЅРѕР№ СЃС‚СЂРѕРєРµ РЅРµС‚ СЃРѕРіР»Р°СЃРЅС‹С… Р±СѓРєРІ. РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РїСЂРѕРІРµСЂСЊС‚Рµ СЂР°СЃРєР»Р°РґРєСѓ РєР»Р°РІРёР°С‚СѓСЂС‹.");
 				}
 			
 				 LinkedHashMap<Character, Integer> sortedMap = sorting(mapping);
@@ -157,7 +157,7 @@ public class Consonants {
 				   }
 			   }
 			}catch (IOException e){
-			   System.out.println("Ошибка");
+			   System.out.println(e.getMessage());
 			}
 		return str;
 	}
